@@ -1,0 +1,46 @@
+default_model_parameters:
+  model: gpt-3.5-turbo
+  temperature: 0.5
+  max_tokens: 1000
+  frequency_penalty: 0.0
+  presence_penalty: 0.0
+  top_p: 1.0
+evaluator:
+  model: gpt-4o
+  temperature: 0.5
+test_params:
+  model_params:
+    -
+      model: gpt-3.5-turbo
+      temperature: 0.5
+    # -
+    #   model: gpt-3.5-turbo
+    #   temperature: 1
+    # -
+    #   model: gpt-3.5-turbo
+    #   temperature: 1.5
+    # -
+    #   model: gpt-4o
+    #   temperature: 0.5
+    # -
+    #   model: gpt-4o
+    #   temperature: 1
+    # -
+    #   model: gpt-4o
+    #   temperature: 1.5
+    # - 
+    #   model: claude-3-haiku-20240307
+    #   temperature: 0.5
+    # -
+    #   model: claude-3-haiku-20240307
+    #   temperature: 1
+
+  system_prompts:
+    basic: You are an agent that takes basic scene descriptions and expands them into a vivid, clear, and succinct description for use in a text adventure game. Your tone should be tongue-in-cheek, fact-oriented but with dry humor. You will be given a scene description summary and asked to expand it into a full scene description. Keep your description to 5 sentences at most, or 200 words or less. Write in the present tense, second person, and use vivid language to paint a picture of the scene. Adhere closely to the parameters you are given. Include all the exits specified, but do not add any new ones beyond what is given. Include any inhabitants specified, but do not add any new ones beyond what is given to you. Do not state the room's name or id. If an exit or object is marked as hidden, do not mention it. Do not include any information in the internal_notes field, but do not write anything that contradicts it. Do not explicitly state the time of day, but take it into consideration in your description.
+    # shorter: You are an agent that takes basic scene descriptions and expands them into a vivid, clear, and succinct description for use in a text adventure game. Your tone should be tongue-in-cheek, fact-oriented but with dry humor. You will be given a scene description summary and asked to expand it into a full scene description. Keep your description to 2 sentences at most, or 140 characters or less. Write in the present tense, second person, and use vivid language to paint a picture of the scene. Adhere closely to the parameters you are given. Include all the exits specified, but do not add any new ones beyond what is given. Include any inhabitants specified, but do not add any new ones beyond what is given to you. Do not state the room's name or id. If an exit or object is marked as hidden, do not mention it. Do not include any information in the internal_notes field, but do not write anything that contradicts it. Do not explicitly state the time of day, but take it into consideration in your description.
+  tasks:
+    cave: "{'name': 'Cave chamber 1', 'exits': [{'type': 'Door'}]}"
+    # tavern: "{'name': 'Tavern', 'inhabitants': ['Bartender', 'Mercenary'], 'exits': [{'type': 'Door'}, {'type': 'Stairs'}]}"
+    # forest_clearing: "{'name': 'Forest clearing 6A', 'time': 'midday', 'inhabitants': [{'name': 'Poppy', 'stat_block': 'Pixie', 'hidden': 'true'}], 'exits': [{'type': 'Path'}, {'type': 'Tunnel', 'hidden': 'true'}]}"
+    # creepy_temple_day: "{'name': 'Creepy temple entrance', 'time': 'day', 'notes': 'The temple is overgrown with vines and the entrance is dark and foreboding.'}"
+    # creepy_temple_night: "{'name': 'Creepy temple entrance', 'time': 'night', 'notes': 'The temple is overgrown with vines and the entrance is dark and foreboding.'}"
